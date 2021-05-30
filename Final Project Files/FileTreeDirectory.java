@@ -1,3 +1,6 @@
+//class is responsible for loading JTree
+//By group effort
+
 package edu.sdccd.cisc191.n;
 
 import javax.swing.*;
