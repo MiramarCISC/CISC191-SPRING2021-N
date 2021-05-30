@@ -1,4 +1,5 @@
 //class fills JTable with file information and loads images 
+//By group effort
 package edu.sdccd.cisc191.n;
 
 import javax.swing.*;
