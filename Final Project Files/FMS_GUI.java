@@ -1,3 +1,6 @@
+//Holds all GUI components and functions, is reponsible for interactiions with program=
+//By Jeric Pascua
+
 package edu.sdccd.cisc191.n;
 
 import javax.swing.*;
@@ -29,7 +32,7 @@ public class FMS_GUI extends JFrame{
     private File currentFile;
 
     public FMS_GUI(){
-
+         
         setTitle("File Manager System");
         setSize(600, 400);
         setLayout(new BorderLayout(5, 5));
