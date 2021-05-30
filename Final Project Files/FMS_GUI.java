@@ -174,12 +174,13 @@ public class FMS_GUI extends JFrame{
         });
         toolBar.add(printFile);
 
+        //deletes file currently displayed in "Path/name" text field and updates field once you leave current directory
         JButton deleteFile = new JButton("Delete");
         deleteFile.addActionListener(ae -> {
             try{
                 if (currentFile != null) {
                     Files.deleteIfExists(Paths.get(currentFile.getAbsolutePath()));
-                    System.out.println("File deleted!");
+                    JOptionPane.showMessageDialog(bottomPanel, "File deleted!");
                 }
             } catch (Throwable t) {
                 t.printStackTrace();
@@ -188,12 +189,20 @@ public class FMS_GUI extends JFrame{
         });
         toolBar.add(deleteFile);
 
+        //renames file currently displayed in "Path/name"
         JButton renameFile = new JButton("Rename");
-        /*renameFile.addActionListener(ae -> {
+        renameFile.addActionListener(ae -> {
             try{
-
+                if (currentFile != null){
+                    String rename = JOptionPane.showInputDialog("Please enter new file name: ");
+                    String parent = currentFile.getParent();
+                    Files.move(Paths.get(currentFile.getAbsolutePath()), Paths.get(parent + "\\" + rename));
+                    JOptionPane.showMessageDialog(bottomPanel, "File renamed!");
+                }
+            } catch (Throwable t) {
+                t.printStackTrace();
             }
-        });*/
+        });
         toolBar.add(renameFile);
 
         openFile.setEnabled(desktop.isSupported(Desktop.Action.OPEN));
@@ -305,3 +314,4 @@ public class FMS_GUI extends JFrame{
         size.setText(file.length() + " bytes");
     }
 }
+
